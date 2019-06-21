@@ -1,19 +1,14 @@
 <template>
   <div id="app">
-    <h3>GHIBLI STUDIO FILM CONTENT</h3>
-    <nav >
-      <!-- <p v-if="this.filmsAPI"> -->
-      <router-link :to="{ name: 'films', params: {filmsAll: filmsAPI}}">Film Titles</router-link>
 
-      <!-- <p>{{this.filmsAPI}}</p> -->
-      <!-- </p> -->
-      <!-- <router-link :to="{ name: '', params: {} }"></router-link> -->
+    <h3>GHIBLI STUDIO FILM CONTENT</h3>
+    <nav v-if=filmsAPI>
+      <router-link :to="{ name: 'films', params: {filmsAll: filmsAPI}}">Film Titles</router-link>
     </nav>
-    <!-- <p>{{this.filmsAPI}}</p> -->
     <p>test1</p>
     <p></p>
     <router-view id="view"></router-view>
-    <!-- <button type="button" name="button" v-on:click="refresh"></button> -->
+
   </div>
 </template>
 

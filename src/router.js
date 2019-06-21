@@ -15,7 +15,7 @@ const router = new Router({
       component: Nav
     },
     {
-      path: '/films/:filmsAll',
+      path: '/films',
       props: true,
       name: 'films',
       component: Films
@@ -24,3 +24,5 @@ const router = new Router({
 })
 
 export default router;
+
+// /:filmsAll

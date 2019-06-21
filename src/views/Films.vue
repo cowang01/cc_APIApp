@@ -2,19 +2,25 @@
   <div>
     <br>
     <p>test3</p>
-    <p>{{filmsAll}}</p>
+    <nav-list :title='title' :about='about' :raw='filmsAll'></nav-list>
+    <!-- <p>{{filmsAll}}</p> -->
   </div>
 </template>
 
 <script>
-import {eventBus} from '../main.js'
+// import {eventBus} from '../main.js'
+import NavList from '@/components/NavList.vue'
 export default {
   data(){
     return {
-      film: 'string'
+      title: 'title',
+      about: 'release_date'
     }
   },
-  props: ['filmsAll']
+  props: ['filmsAll'],
+  components: {
+    'nav-list': NavList
+  }
   // props: {
   //   filmAll: 'String'
   // }
