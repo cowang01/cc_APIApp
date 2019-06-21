@@ -5,6 +5,8 @@ import  Films from '@/views/Films.vue'
 
 Vue.use(Router)
 
+// const filmsAll = []
+
 const router = new Router({
   routes: [
     {
@@ -13,10 +15,8 @@ const router = new Router({
       component: Nav
     },
     {
-      path: '/films/:films',
-      // params: {
-      //   films: 'filmsAPI'
-      // },
+      path: '/films/:filmsAll',
+      props: true,
       name: 'films',
       component: Films
     }

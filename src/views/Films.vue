@@ -2,7 +2,7 @@
   <div>
     <br>
     <p>test3</p>
-    <p>{{films}}</p>
+    <p>{{filmsAll}}</p>
   </div>
 </template>
 
@@ -11,10 +11,13 @@ import {eventBus} from '../main.js'
 export default {
   data(){
     return {
-      film: ''
+      film: 'string'
     }
   },
-  params: ['films']
+  props: ['filmsAll']
+  // props: {
+  //   filmAll: 'String'
+  // }
   // mounted(){
   //   eventBus.$on('raw-films', (films) => {
   //     this.films = films;

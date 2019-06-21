@@ -3,7 +3,9 @@
     <h3>GHIBLI STUDIO FILM CONTENT</h3>
     <nav >
       <!-- <p v-if="this.filmsAPI"> -->
-      <router-link :to="{ name: 'films', params: {filmsAPI: 123} }">Film Titles</router-link>
+      <router-link :to="{ name: 'films', params: {filmsAll: filmsAPI}}">Film Titles</router-link>
+
+      <!-- <p>{{this.filmsAPI}}</p> -->
       <!-- </p> -->
       <!-- <router-link :to="{ name: '', params: {} }"></router-link> -->
     </nav>
@@ -11,7 +13,7 @@
     <p>test1</p>
     <p></p>
     <router-view id="view"></router-view>
-    <button type="button" name="button" v-on:click="refresh"></button>
+    <!-- <button type="button" name="button" v-on:click="refresh"></button> -->
   </div>
 </template>
 
@@ -25,7 +27,7 @@
       },
       data(){
         return{
-          filmsAPI: []
+          filmsAPI: ''
         }
       },
       mounted(){
@@ -35,13 +37,13 @@
         // eventBus.$emit('raw-films', )
         // .then(console.log('films', this.filmsAPI))
 
-      },
+       },
       methods: {
-        refresh(){
-          eventBus.$emit('raw-films2', this.filmsAPI)
+        // refresh(){
+        //   eventBus.$emit('raw-films2', this.filmsAPI)
         }
       }
-    }
+    // }
   </script>
 
   <style>
@@ -54,3 +56,6 @@
     margin-top: 60px;
   }
   </style>
+
+
+// :filmsAll="this.filmsAPI"
