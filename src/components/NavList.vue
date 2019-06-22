@@ -2,13 +2,17 @@
   <div class="">
 
     <div class="listed">
-      <div>
+      <div class="texted">
         <p><u>{{title}}</u></p>
-        <ul v-for="first in raw">{{first.title}}</ul>
+        <ol v-for="first in raw">{{first.title}}</ol>
       </div>
-      <div>
+      <div class="texted">
         <p><u>{{about}}</u></p>
-        <ul v-for="second in raw">{{second.release_date}}</ul>
+        <ol v-for="second in raw">{{second.release_date}}</ol>
+      </div>
+      <div class="buttoned">
+          <p><u>link</u></p>
+        <button v-for="second in raw" type="button" name="button">Further Detail</button><br><br>
       </div>
     </div>
 
@@ -26,7 +30,18 @@ export default {
 
 .listed {
   display: flex;
-  flex-direction: row
+  flex-direction: row;
+  padding-left: 10%;
+}
+
+.texted {
+  text-align: left;
+}
+
+.buttoned {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 </style>
