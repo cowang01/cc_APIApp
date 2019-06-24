@@ -1,7 +1,6 @@
 <template lang="html">
   <div class="">
-
-    <p>test45</p>
+    <br>
     <nav-list :title='title' :about='about' :raw='locationsAll'></nav-list>
 
   </div>
@@ -13,8 +12,9 @@ import NavList from '@/components/NavList.vue'
 export default {
   data(){
     return {
-      title: 'title',
-      about: 'film'
+      title: 'name',
+      about: 'terrain',
+      films: ''
     }
   },
   props: ['locationsAll'],

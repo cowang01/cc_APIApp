@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Nav from '@/views/Nav.vue'
 import  Films from '@/views/Films.vue'
 import Location from '@/views/Locations.vue'
+import Detail from '@/views/Detail.vue'
 
 Vue.use(Router)
 
@@ -26,6 +27,12 @@ const router = new Router({
       props: true,
       name: 'locations',
       component: Location
+    },
+    {
+      path: '/detail',
+      props: true,
+      name: 'detail',
+      component: Detail
     }
   ]
 })

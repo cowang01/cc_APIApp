@@ -1,7 +1,6 @@
 <template lang="html">
   <div>
     <br>
-    <p>test3</p>
     <nav-list :title='title' :about='about' :raw='filmsAll'></nav-list>
     <!-- <p>{{filmsAll}}</p> -->
   </div>
@@ -20,7 +19,8 @@ export default {
   props: ['filmsAll'],
   components: {
     'nav-list': NavList
-  }
+  },
+
   // props: {
   //   filmAll: 'String'
   // }

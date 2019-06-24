@@ -1,19 +1,24 @@
 <template lang="html">
-  <div class="">
+  <div class="main">
 
-    <div class="listed">
-      <div class="texted">
-        <p><u>{{title}}</u></p>
-        <ol v-for="first in raw">{{first.title}}</ol>
-      </div>
-      <div class="texted">
-        <p><u>{{about}}</u></p>
-        <ol v-for="second in raw">{{second.release_date}}</ol>
-      </div>
-      <div class="buttoned">
-          <p><u>link</u></p>
-        <button v-for="second in raw" type="button" name="button">Further Detail</button><br><br>
-      </div>
+    <div>
+      <table>
+        <tr>
+          <th><u>{{title}}</u></th>
+          <th><u>{{about}}</u></th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr v-for="item in raw">
+          <td>{{(item.name || item.title)}}</td>
+          <td>{{item.release_date || item.terrain}}</td>
+          <td> </td>
+          <td><router-link :to="{ name: 'detail', params: {detailChoice: item} }"><button type="button" name="button">Further Detail</button></router-link></td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <img src="" alt="">
     </div>
 
   </div>
@@ -22,26 +27,23 @@
 <script>
 export default {
   name: 'nav-list',
-  props: ['title', 'about', 'raw']
+  props: ['title', 'about', 'raw'],
+  // methods: {
+  //   detailPage: function  {
+  //     'redirect' =>
+  //   }
+  // }
 }
 </script>
 
 <style lang="css" scoped>
 
-.listed {
-  display: flex;
-  flex-direction: row;
-  padding-left: 10%;
-}
-
-.texted {
+table {
   text-align: left;
+  position: relative;
+  vertical-align: middle;
+  padding: 0 10%;
 }
 
-.buttoned {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 
 </style>

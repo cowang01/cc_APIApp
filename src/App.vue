@@ -1,13 +1,13 @@
 <template>
   <div id="app">
 
-    <h3>GHIBLI STUDIO FILM CONTENT</h3>
-    <nav v-if=filmsAPI>
-      <router-link :to="{ name: 'films', params: {filmsAll: filmsAPI}}">Film Titles</router-link>
-      <router-link :to="{ name: 'locations', params: {locationsAll: locationsAPI}}">Locations</router-link>
-    </nav>
-    <p>test1</p>
-    <p></p>
+    <h3 id="banner">GHIBLI STUDIO FILM CONTENT</h3>
+    <div class="navigation">
+      <nav v-if=filmsAPI>
+        <router-link :to="{ name: 'films', params: {filmsAll: filmsAPI}}">Film Titles</router-link>
+        <router-link :to="{ name: 'locations', params: {locationsAll: locationsAPI}}">Locations</router-link>
+      </nav>
+    </div>
     <router-view id="view"></router-view>
 
   </div>
@@ -47,19 +47,30 @@ export default {
 </script>
 
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
+#app {
+  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 30px; */
+}
 
-  nav {
-    display: flex;
-    justify-content: space-around;
-  }
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+h3 {
+  font-family: Fira Mono, Monospace;
+  font-size: 40px;
+  background-color: #4D90CA;
+  text-align: center;
+}
+
+.navigation {
+  background-color: #6FEAB5;
+}
 </style>
 
 
