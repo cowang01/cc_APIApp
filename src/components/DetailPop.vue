@@ -1,8 +1,8 @@
 <template lang="html">
-  <div class="">
+  <div id="pop">
 
     <table v-if="popData">
-      <tr v-for="(item, key) in popData">
+      <tr v-for="(item, key) in popData[0]">
         <th v-if="checkAPI(item)">{{key}}: </th>
         <td v-if="checkAPI(item)">{{item}}</td>
       </tr>
@@ -22,7 +22,7 @@ export default {
   props: ['API'],
   watch: {
     API: function(val, old) {
-      fetch(val).then(res => res.json()).then(newAPI => this.popData = newAPI)
+      fetch(val).then(res => res.json()).then(newAPI => Array.isArray(newAPI) ? this.popData = newAPI : this.popData = [newAPI]);
     }
   },
   methods: {
@@ -34,4 +34,19 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+#pop {
+  margin: 4vw;
+  padding: 2%;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: #3C3E3D;
+  height: 100%;
+  overflow: scroll;
+}
+
 </style>
+
+    <!-- API: function(val, old) {
+      fetch(val).then(res => res.json()).then(newAPI => this.popData = newAPI);
+    } -->

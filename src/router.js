@@ -4,6 +4,8 @@ import Nav from '@/views/Nav.vue'
 import  Films from '@/views/Films.vue'
 import Location from '@/views/Locations.vue'
 import Detail from '@/views/Detail.vue'
+import People from '@/views/People.vue'
+import Vehicles from '@/views/Vehicles.vue'
 
 Vue.use(Router)
 
@@ -33,7 +35,20 @@ const router = new Router({
       props: true,
       name: 'detail',
       component: Detail
+    },
+    {
+      path: '/people',
+      props: true,
+      name: 'people',
+      component: People
+    },
+    {
+      path: '/vehicle',
+      props: true,
+      name: 'vehicles',
+      component: Vehicles
     }
+
   ]
 })
 

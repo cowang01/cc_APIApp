@@ -1,20 +1,25 @@
 <template>
-  <div id="app">
+  <div class="app">
+    <div class="banner">
+      GHIBLI STUDIO FILM CONTENT
+    </div>
 
-    <h3 id="banner">GHIBLI STUDIO FILM CONTENT</h3>
     <div class="navigation">
-      <nav v-if=filmsAPI>
+      <nav id="nav" v-if="filmsAPI">
         <router-link :to="{ name: 'films', params: {filmsAll: filmsAPI}}">Film Titles</router-link>
         <router-link :to="{ name: 'locations', params: {locationsAll: locationsAPI}}">Locations</router-link>
+        <router-link :to="{ name: 'people', params: {peopleAll: peopleAPI}}">People</router-link>
+        <router-link :to="{ name: 'vehicles', params: {vehiclesAll: vehiclesAPI}}">Vehicles</router-link>
       </nav>
     </div>
+
     <router-view id="view"></router-view>
 
   </div>
 </template>
 
 <script>
-import {eventBus} from './main.js';
+// import {eventBus} from './main.js';
 
 export default {
   name: 'app',
@@ -24,7 +29,9 @@ export default {
   data(){
     return{
       filmsAPI: '',
-      locationsAPI: ''
+      locationsAPI: '',
+      peopleAPI: '',
+      vehiclesAPI: ''
     }
   },
   mounted(){
@@ -34,6 +41,12 @@ export default {
     fetch('https://ghibliapi.herokuapp.com/locations')
     .then(res => res.json())
     .then(locationRaw => this.locationsAPI = locationRaw)
+    fetch('https://ghibliapi.herokuapp.com/people')
+    .then(res => res.json())
+    .then(peopleRaw => this.peopleAPI = peopleRaw)
+    fetch('https://ghibliapi.herokuapp.com/vehicles')
+    .then(res => res.json())
+    .then(vehicleRaw => this.vehiclesAPI = vehicleRaw)
     // eventBus.$emit('raw-films', )
     // .then(console.log('films', this.filmsAPI))
 
@@ -56,20 +69,28 @@ export default {
   margin-top: 30px; */
 }
 
-nav {
-  display: flex;
-  justify-content: space-around;
+.app {
+  font-family: sans-serif;
+  color: #3C3E3D;
 }
 
-h3 {
+.banner {
   font-family: Fira Mono, Monospace;
   font-size: 40px;
   background-color: #4D90CA;
   text-align: center;
+  padding: 1vw 0;
+  color: black;
 }
 
 .navigation {
   background-color: #6FEAB5;
+  padding: 1vw 0;
+}
+
+ #nav {
+  display: flex;
+  justify-content: space-around;
 }
 </style>
 
